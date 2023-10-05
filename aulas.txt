@@ -1,0 +1,19 @@
+crud - create, read, update, delete - persistir
+
+Classe- forma de bolacha
+objeto - a propria bolacha
+
+EF - entity framework
+
+Interface de usuário - tela:
+    View
+    UI (user interface)
+    GUI(Guide User Interface)
+
+Interface- Contrato da classe - permite maior flexibilidade ao configurar.
+ - Especifica o metodo, não o implementa. Especifica o metodo que as classes DEVEM implementar
+
+
+injeção de dependecia 
+
+linq - language integrated query
