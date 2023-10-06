@@ -32,6 +32,9 @@ namespace PSIUWeb.Models
         [ForeignKey("User")]
         public string? UserId { get; set; }
         public AppUser? User { get; set; }
+
+       // public bool IsAval
+
     }
 }
 
