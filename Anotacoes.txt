@@ -1,0 +1,97 @@
+dotnet --list-sdks
+dotnet new mvc --no-https --output PartyInvites // criar projetos
+dotnet ef migrations add initial
+
+
+
+
+*Conceitos*
+
+Object:
+var custumer = new Custumer();
+   (nova variável)    (método construtor de mesmo nome da variável)
+custumer.FirstName = "x";
+custumer.Validate();
+
+Class:
+public class custumer
+{
+	public int CustumerId {get; set;}
+	public string EmailAddress {get; set;}
+	public string FirstName {get; set;}
+	public string LastName {get; set;}
+	public bool Validate() { .... }
+}
+
+
+// Objetos possuem um formato especificado pela classe, porém, cada objeto pode armazenar valores diferentes, ocasioando diferentes em seus métodos (RPG).
+
+Objeto de Negócio:
+//Business Objects são as classes projetadas para solucionar problemas de um determinado domínio de aplicação do software
+	//Domínio: escopo principal do problema
+		//Ex: Classe Consumidor em um sistema comercial, com email e nome como propriedades(objetos)
+Entidade
+//Entity é qualquer coisa importante do domínio da aplicação ou do mundo real que precise ser representado como uma classe (substantivos (consumidor, animal, clinica...)
+
+Entity
+Class
+Objects
+
+
+*Programação orientada a objeto*
+é uma abordagem para projetar e construir aplicações que são:
+>Flexiveis
+>Naturais
+>Bem elaboradas 
+>Testaveis
+Focada em objetos que interagem umas com as outras
+
+1)  Identifique as classes dos requisitos ou especificações para definir as entidades da aplicação
+2)  Analise as classes e separe as responsabilidades
+3)  Estabeleca os relacionamentos entre as classes
+4)  Reutilizar
+
+Aplicação: 
+//Levar em consideração o fator tempo, pensando em possíveis alterações de dados 
+//Abstração: Trazer os problemas
+de fora para dentro do código. Definir classes simplificando a realidade, ignorando detalhes desnecessários e focando apenas no que
+é relevante ao escopo da aplicação.
+//Encapsulamento: Técnica para "esconder" os dados e os detalher da implementação em uma classe. Garantir que os outros códigos do sistema não se preocupem em saber os detalhes
+da aplicação. (Responsável com endereço encapsulado. Caso o endereço mude, o responsável continua o mesmo). Disponibilizadas para o resto do sistema por meio de métodos
+de gravação e leitura (get; set;)
+
+
+ORM: Object Relational Mapping
+
+################################################
+
+CRUD: Operações de Create, Read, Update, Delete
+Persistir: armazenar no banco de dados o estado de um objeto
+
+Interface de usuário
+> view
+> UI - user interface
+> GUI - guide user interface
+(visão do usuário)
+
+Interface
+> contrato da classe
+> especifica os métodos necessários para as classes que utilizarem tal contrato
+
+Injeção de dependencia
+
+LINQ: Language Integrated Query
+
+Modificadores de acesso: Definem o contrato da classe. Quais atributos e métodos estarão visíveis para quem e em que nível de acesso
+
+Signature: public Customer Retrive(int costumerId)
+Contract: Atributos e métodos
+Overloading: .
+		.
+Constructor: public Customer() { }
+		public Customer(int customerId) { }
+
+Agregar: Não obrigatório
+Compor: Obrigatório
+Ambos adicionam algo 
+
