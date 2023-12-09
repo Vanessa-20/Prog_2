@@ -1,25 +1,26 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using PSIUWeb.Data.EF;
 using PSIUWeb.Data.Interface;
 using PSIUWeb.Models;
 
 namespace PSIUWeb.Controllers
-{
-    public class CategoryController : Controller
+{ 
+    public class MidiaController : Controller
     {
-        private ICategoryRepository categoryRepository;
+        private IMidiaRepository midiaRepository;
 
-        public CategoryController(ICategoryRepository repo)
+        public MidiaController(
+            IMidiaRepository _midiaRepo
+        )
         {
-            categoryRepository = repo;
+            midiaRepository = _midiaRepo;
         }
 
         [HttpGet]
         public IActionResult Index()
         {
             return View(
-                categoryRepository.GetCategories()
+                midiaRepository.GetMidias()
             );
         }
 
@@ -28,26 +29,27 @@ namespace PSIUWeb.Controllers
         {
             if (id <= 0 || id == null)
                 return NotFound();
-            Category? c =
-                categoryRepository.GetCategoryById(id.Value);
 
-            if (c == null)
+            Midia? m =
+                midiaRepository.GetMidiaById(id.Value);
+
+            if (m == null)
                 return NotFound();
 
-            return View(c);
+            return View(m);
 
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(Category category)
+        public IActionResult Edit(Midia midia)
         {
             if (ModelState.IsValid)
             {
                 try
                 {
-                    categoryRepository.Update(category);
-                    return View("Index", categoryRepository.GetCategories());
+                    midiaRepository.Update(midia);
+                    return View("Index", midiaRepository.GetMidias());
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -63,13 +65,13 @@ namespace PSIUWeb.Controllers
             if (id == null)
                 return NotFound();
 
-            Category? c =
-                categoryRepository.GetCategoryById(id.Value);
+            Midia? m =
+                midiaRepository.GetMidiaById(id.Value);
 
-            if (c == null)
+            if (m == null)
                 return NotFound();
 
-            return View(c);
+            return View(m);
         }
 
         [HttpPost]
@@ -79,7 +81,7 @@ namespace PSIUWeb.Controllers
             if (id == null || id == 0)
                 return NotFound();
 
-            categoryRepository.Delete(id);
+            midiaRepository.Delete(id);
 
             return RedirectToAction(nameof(Index));
         }
@@ -91,15 +93,15 @@ namespace PSIUWeb.Controllers
         }
 
         [HttpPost]
-        public IActionResult Insert(Category c)
+        public IActionResult Insert(Midia m)
         {
 
             if (ModelState.IsValid)
             {
                 try
                 {
-                    categoryRepository.Create(c);
-                    return View("Index", categoryRepository.GetCategories());
+                    midiaRepository.Create(m);
+                    return View("Index", midiaRepository.GetMidias());
                 }
                 catch (Exception)
                 {
@@ -110,4 +112,5 @@ namespace PSIUWeb.Controllers
         }
 
     }
+
 }

@@ -21,6 +21,14 @@ builder.Services.AddScoped<IPacientRepository, EFPacientRepository>();
 
 builder.Services.AddScoped<IPsicoRepository, EFPsicoRepository>();
 
+builder.Services.AddScoped<IContentRepository, EFContentRepository>();
+
+builder.Services.AddScoped<ICategoryRepository, EFCategoryRepository>();
+
+builder.Services.AddScoped<IContentCategoryRepository, EFContentCategoryRepository>();
+
+builder.Services.AddScoped<IMidiaRepository, EFMidiaRepository>();
+
 builder.Services.AddIdentity<AppUser, IdentityRole>( 
     options =>
     {

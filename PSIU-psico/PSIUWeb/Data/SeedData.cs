@@ -1,11 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using PSIUWeb.Models;
+using static System.Net.WebRequestMethods;
 
 namespace PSIUWeb.Data
 {
     public static class SeedData
     {
-
         public static void EnsurePopulated( 
             IApplicationBuilder app 
         )
@@ -65,6 +65,30 @@ namespace PSIUWeb.Data
                 );
 
                 context.SaveChanges();
+
+
+                if (!context.Midias.Any())
+                {
+                    context.Midias.AddRange(
+                    new Midia
+                    {
+                        MidiaId = 614,
+                        URL = "https://www.google.com/url?sa=i&url=https%3A%2F%2Fpt.vecteezy.com%2Ffotos-gratis%2F3d&psig=AOvVaw2KiVIB40NmJA6Lz5kt5L0B&ust=1699572366312000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCNjnhs7GtYIDFQAAAAAdAAAAABAE ",
+                        TipoMidia = "Foto"
+
+                    },
+                    new Midia
+                    {
+                        MidiaId = 555,
+                        URL = "https://www.google.com/url?sa=i&url=http%3A%2F%2Fcbissn.ibict.br%2Findex.php%2Fimagens%2F1-galeria-de-imagens-01%2Fdetail%2F3-imagem-3-titulo-com-ate-45-caracteres&psig=AOvVaw2KiVIB40NmJA6Lz5kt5L0B&ust=1699572366312000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCNjnhs7GtYIDFQAAAAAdAAAAABAI ",
+                        TipoMidia = "Foto"
+                    }
+
+                    ) ;
+
+                    context.SaveChanges();
+                }
+
             }
 
         }

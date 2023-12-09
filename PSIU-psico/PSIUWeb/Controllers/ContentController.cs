@@ -36,7 +36,7 @@ namespace PSIUWeb.Controllers
             if (id <= 0 || id == null)
                 return NotFound();
 
-            Pacient? c =
+            Content? c =
                 contentRepository.GetContentById(id.Value);
 
             if (c == null)
